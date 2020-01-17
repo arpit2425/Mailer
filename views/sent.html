@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Mailer</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        text-align: center;
+      }
+      img {
+        width: 300px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Mail Sent</h1>
+    <div id="im"></div>
+
+    <script>
+      function success () {
+        var img = document.createElement('img')
+        img.src = 'http://pngimg.com/uploads/smiley/smiley_PNG179.png'
+
+        document.getElementById('im').appendChild(img)
+      }
+      success()
+    </script>
+  </body>
+</html>

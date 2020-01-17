@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Mailer</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      .container {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba(110, 255, 30, 0.5),
+          rgb(110, 180, 30, 0.5)
+        );
+        width: 50%;
+        padding: 20px;
+        margin: 10px auto;
+        text-transform: uppercase;
+        color: #979595;
+        text-align: center;
+      }
+      input {
+        padding: 5px;
+        margin: 10px;
+        border-radius: 50px;
+
+        text-align: center;
+        padding: 5px;
+        border: 1px solid #c9c9c9;
+        width: 50%;
+        transition: all 0.1s;
+      }
+      #subject {
+      }
+      input:focus {
+        outline: none;
+        width: 70%;
+      }
+      .btn {
+        background-color: #ff7f50;
+        padding: 10px;
+        width: 300px;
+      }
+      .btn:focus {
+        width: 300px;
+      }
+      .btn:hover {
+        background-color: #ee6533;
+      }
+      textarea {
+        width: 70%;
+        border-radius: 20px;
+        padding: 8px;
+      }
+      textarea:focus {
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Contact me!!</h1>
+      <form>
+        <input type="text" id="subject" placeholder="subject" /><br />
+        <input type="email" id="email" placeholder="email" required /><br />
+        <textarea name="text" id="text" cols="30" rows="10" required></textarea
+        ><br />
+        <input type="submit" value="submit" class="btn" />
+      </form>
+    </div>
+    <script src="" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $('form').on('submit', e => {
+        e.preventDefault()
+
+        const email = $('#email')
+          .val()
+          .trim()
+        const subject = $('#subject')
+          .val()
+          .trim()
+        const text = $('#text')
+          .val()
+          .trim()
+
+        const data = {
+          email,
+          subject,
+          text
+        }
+
+        $.post('/email', data)
+          .then(() => {
+            window.location.href = '/email/sent'
+          })
+          .catch(() => {
+            window.location.href = '/error'
+          })
+      })
+    </script>
+  </body>
+</html>

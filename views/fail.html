@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Mailer</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        text-align: center;
+      }
+      img {
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Something Went wrong!!!</h1>
+    <div id="im"></div>
+
+    <script>
+      function fail () {
+        var img = document.createElement('img')
+        img.src =
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSXqIdRAYBwPpDcWQdi6qoB36t5jpEln2S_Seg8oHiDMykxTMJP'
+
+        document.getElementById('im').appendChild(img)
+      }
+      fail()
+    </script>
+  </body>
+</html>
